@@ -33,7 +33,7 @@ def initiate!
 end
 
 def push_events
-  @push_events ||= GitHub.received_push_events('rafBM')
+  @push_events ||= GitHub.received_push_events(GITHUB_LOGIN)
 end
 
 def store_push_events!
