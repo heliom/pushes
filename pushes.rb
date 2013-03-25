@@ -1,6 +1,5 @@
 require 'json'
 require 'octokit'
-require 'awesome_print'
 require 'terminal-notifier'
 require 'highline/import'
 
