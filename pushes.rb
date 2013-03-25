@@ -1,12 +1,29 @@
+require 'json'
 require 'octokit'
 require 'awesome_print'
 require 'terminal-notifier'
+require 'highline/import'
 
 # Constants
 STORAGE_FILE = "#{ENV['HOME']}/.pushes_storage"
 CONFIG_FILE  = "#{ENV['HOME']}/.pushesrc"
 
-config = File.read(CONFIG_FILE)
+def create_config_file
+  github_login = ask 'What is your GitHub username? '
+  authorizations = `curl -u '#{github_login}' -d '{"scopes":["repo"],"note":"Pushes"}' https://api.github.com/authorizations`
+  github_token = JSON.parse(authorizations)['token']
+
+  raise StandardError, 'You most likely typed a bad password, please try again' unless github_token
+
+  content = "LOGIN=#{github_login}\nTOKEN=#{github_token}\n"
+  File.open(CONFIG_FILE, 'w') do |file|
+    file.write(content)
+  end
+
+  content
+end
+
+config = File.read(CONFIG_FILE) rescue create_config_file
 GITHUB_LOGIN = config.match(/login\s*=\s*(\w+)/i)[1]
 GITHUB_TOKEN = config.match(/token\s*=\s*(\w+)/i)[1]
 
