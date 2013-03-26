@@ -1,5 +1,5 @@
 # Pushes
-GitHub PushEvents Notifications on Mac OS X 10.8
+GitHub post-commit notifs in your OS X Notification Center
 
 ## Watch
 ```

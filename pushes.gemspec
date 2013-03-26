@@ -6,7 +6,7 @@ spec = Gem::Specification.new do |s|
   s.authors = ['Rafael Blais-Masson', 'Etienne Lemay']
   s.email = 'fellowship@heliom.ca'
   s.homepage = 'https://github.com/heliom/pushes'
-  s.summary = 'GitHub PushEvents Notifications on Mac OS X 10.8'
+  s.summary = 'GitHub post-commit notifs in your OS X Notification Center'
 
   s.version = Pushes::VERSION
   s.platform = Gem::Platform::RUBY
