@@ -1,4 +1,5 @@
 require 'octokit'
+require 'terminal-notifier'
 
 require 'pushes/config'
 require 'pushes/version'
