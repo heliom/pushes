@@ -13,6 +13,7 @@ module Pushes
       notify_push_events
       store_push_events
     end
+  rescue
   end
 
   def self.first_run?
