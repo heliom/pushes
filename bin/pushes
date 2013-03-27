@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
 require 'pushes'
-Pushes.run(ARGV)
+exit Pushes.run(ARGV)

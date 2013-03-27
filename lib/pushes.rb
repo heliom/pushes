@@ -19,6 +19,8 @@ module Pushes
     rescue NoMethodError
       say "error: Unknown command '#{command}'"
     end
+
+    1
   end
 
   # Commands
