@@ -6,7 +6,23 @@ require 'pushes/version'
 require 'pushes/notifier'
 
 module Pushes
+  DEFAULT_COMMAND = 'fetch'
+
   def self.run(argv)
+    command = argv.first || DEFAULT_COMMAND
+    args = argv - [command]
+
+    begin
+      send(command, args)
+    rescue ArgumentError
+      send(command)
+    rescue NoMethodError
+      say "error: Unknown command '#{command}'"
+    end
+  end
+
+  # Commands
+  def self.fetch
     if first_run?
       config.initiate
       store_push_events
@@ -18,6 +34,7 @@ module Pushes
   rescue
   end
 
+  # Utilities
   def self.first_run?
     !config.initiated?
   end
