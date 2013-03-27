@@ -2,7 +2,7 @@
 require File.join([File.dirname(__FILE__),'lib','pushes','version.rb'])
 
 spec = Gem::Specification.new do |s|
-  s.name = 'Pushes'
+  s.name = 'pushes'
   s.authors = ['Rafael Blais-Masson', 'Etienne Lemay']
   s.email = 'fellowship@heliom.ca'
   s.homepage = 'https://github.com/heliom/pushes'
