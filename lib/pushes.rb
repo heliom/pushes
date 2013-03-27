@@ -1,8 +1,8 @@
 require 'octokit'
-require 'terminal-notifier'
 
 require 'pushes/config'
 require 'pushes/version'
+require 'pushes/notifier'
 
 module Pushes
   def self.run(argv)
@@ -58,8 +58,12 @@ module Pushes
       commits_text = "commit#{'s' if commits.size > 1}"
       message = "#{user} pushed #{commits.size} #{commits_text} to #{branch}"
 
-      TerminalNotifier.notify(message, title: title, open: url)
+      notifier.notify(message, title: title, open: url)
     end
+  end
+
+  def self.notifier
+    @notifier ||= Notifier.new
   end
 
   def self.config
