@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'octokit'
 
 require 'pushes/config'
@@ -9,6 +10,7 @@ module Pushes
     if first_run?
       config.initiate
       store_push_events
+      notify_initiated
     else
       notify_push_events
       store_push_events
@@ -60,6 +62,10 @@ module Pushes
 
       notifier.notify(message, title: title, open: url)
     end
+  end
+
+  def self.notify_initiated
+    notifier.notify("You’re all set, just wait for new commits.\n~ Pushes", title: 'Ahoy Captain!')
   end
 
   def self.notifier
