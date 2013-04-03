@@ -14,6 +14,7 @@ spec = Gem::Specification.new do |s|
   s.files = %w(LICENSE.md README.md Rakefile pushes.gemspec)
   s.files += Dir.glob("lib/**/*.rb")
   s.files += Dir.glob("bin/**/*")
+  s.files += Dir.glob("files/**/*")
 
   s.bindir = 'bin'
   s.executables << 'pushes'

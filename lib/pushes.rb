@@ -1,9 +1,10 @@
 # encoding: utf-8
 require 'octokit'
 
-require 'pushes/config'
 require 'pushes/version'
+require 'pushes/config'
 require 'pushes/notifier'
+require 'pushes/launch_agent'
 
 module Pushes
   DEFAULT_COMMAND = 'fetch'
@@ -34,6 +35,14 @@ module Pushes
       store_push_events
     end
   rescue
+  end
+
+  def self.start
+    launch_agent.start
+  end
+
+  def self.stop
+    launch_agent.stop
   end
 
   # Utilities
@@ -85,6 +94,10 @@ module Pushes
 
   def self.notify_initiated
     notifier.notify("You’re all set, just wait for new commits.\n~ Pushes", title: 'Ahoy Captain!')
+  end
+
+  def self.launch_agent
+    @launch_agent ||= LaunchAgent.new
   end
 
   def self.notifier
