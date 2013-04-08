@@ -13,6 +13,11 @@ module Pushes
     command = argv.first || DEFAULT_COMMAND
     args = argv - [command]
 
+    if %w(--help -h).include?(command)
+      display_help
+      return 1
+    end
+
     begin
       send("command_#{command}", args)
     rescue ArgumentError
@@ -113,5 +118,25 @@ module Pushes
 
   def self.github
     @github ||= Octokit::Client.new(login: config.login, oauth_token: config.token)
+  end
+
+  def self.display_help
+    say(help_message + "\n")
+  end
+
+  def self.help_message
+    help = []
+    help << 'Usage:'
+    help << '  pushes COMMAND'
+    help << ''
+    help << 'Options:'
+    help << '  -h, --help - Display help'
+    help << ''
+    help << 'Commands:'
+    help << 'fetch            - Fetch new commits from GitHub'
+    help << 'start [INTERVAL] - Start a LaunchAgent background process [INTERVAL in seconds. Default: 10]'
+    help << 'stop             - Stop background process'
+
+    help.join("\n")
   end
 end
