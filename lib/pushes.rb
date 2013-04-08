@@ -14,9 +14,9 @@ module Pushes
     args = argv - [command]
 
     begin
-      send(command, args)
+      send("command_#{command}", args)
     rescue ArgumentError
-      send(command)
+      send("command_#{command}")
     rescue NoMethodError
       say "error: Unknown command '#{command}'"
     end
@@ -25,7 +25,7 @@ module Pushes
   end
 
   # Commands
-  def self.fetch
+  def self.command_fetch
     if first_run?
       config.initiate
       store_push_events
@@ -37,11 +37,11 @@ module Pushes
   rescue
   end
 
-  def self.start
+  def self.command_start
     launch_agent.start
   end
 
-  def self.stop
+  def self.command_stop
     launch_agent.stop
   end
 
