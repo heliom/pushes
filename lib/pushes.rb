@@ -37,8 +37,11 @@ module Pushes
   rescue
   end
 
-  def self.command_start
-    launch_agent.start
+  def self.command_start(args)
+    interval = args.first.to_i
+    start_interval = interval > 0 ? interval : 10
+
+    launch_agent.start(start_interval)
   end
 
   def self.command_stop

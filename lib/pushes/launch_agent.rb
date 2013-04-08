@@ -5,10 +5,10 @@ class Pushes::LaunchAgent
   TEMPLATE_PATH = File.join('../../..', 'files', "#{PLIST_NAME}.erb")
   SETTINGS_DIR = File.join(ENV['HOME'], '.pushes')
 
-  def start
+  def start(start_interval)
     template_file = File.expand_path(TEMPLATE_PATH, __FILE__)
     template_content = File.read(template_file)
-    plist_content = ERB.new(template_content).result
+    plist_content = ERB.new(template_content).result(binding)
 
     File.open(PLIST_PATH, 'w+') do |f|
       f.write(plist_content)
