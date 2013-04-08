@@ -4,16 +4,11 @@
 <dict>
   <key>Label</key>
   <string>ca.heliom.pushes</string>
-  <key>EnvironmentVariables</key>
-  <dict>
-    <key>PATH</key>
-    <string><%= ENV['PATH'] %></string>
-  </dict>
   <key>WorkingDirectory</key>
   <string><%= ENV['HOME'] %></string>
   <key>ProgramArguments</key>
   <array>
-    <string><%= `which pushes`.strip %></string>
+    <string><%= `which -a pushes`.strip.split("\n").last %></string>
   </array>
   <key>StartInterval</key>
   <integer>10</integer>
