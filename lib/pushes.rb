@@ -59,11 +59,11 @@ module Pushes
   end
 
   def self.push_events
-    @push_events ||= received_push_events
+    @push_events ||= received_push_events.map(&:id)
   end
 
   def self.store_push_events
-    @stored_push_events = push_events.map(&:id)
+    @stored_push_events = push_events
     config.store(@stored_push_events)
   end
 

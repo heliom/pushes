@@ -13,17 +13,11 @@ class Pushes::LaunchAgent
       f.write(plist_content)
     end
 
-    mkdir_pushes
     `launchctl load #{PLIST_PATH}`
   end
 
   def stop
     `launchctl unload #{PLIST_PATH}`
     FileUtils.rm(PLIST_PATH)
-  end
-
-  def mkdir_pushes
-    return if File.directory?(Config::PUSHES_FOLDER)
-    FileUtils.mkdir(Config::PUSHES_FOLDER)
   end
 end
