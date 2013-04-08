@@ -2,8 +2,9 @@ require 'json'
 require 'highline/import'
 
 class Pushes::Config
-  STORAGE_FILE = "#{ENV['HOME']}/.pushes_storage"
-  CONFIG_FILE  = "#{ENV['HOME']}/.pushesrc"
+  PUSHES_FOLDER = File.join(ENV['HOME'], '.pushes')
+  STORAGE_FILE = File.join(PUSHES_FOLDER, 'storage')
+  CONFIG_FILE = File.join(PUSHES_FOLDER, 'login')
 
   def initialize
     configs = File.read(CONFIG_FILE) rescue create_config_file

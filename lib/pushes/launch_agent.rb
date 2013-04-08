@@ -3,7 +3,6 @@ class Pushes::LaunchAgent
   DESTINATION = File.join(ENV['HOME'], 'Library', 'LaunchAgents')
   PLIST_PATH = File.join(DESTINATION, PLIST_NAME)
   TEMPLATE_PATH = File.join('../../..', 'files', "#{PLIST_NAME}.erb")
-  SETTINGS_DIR = File.join(ENV['HOME'], '.pushes')
 
   def start(start_interval)
     template_file = File.expand_path(TEMPLATE_PATH, __FILE__)
@@ -24,7 +23,7 @@ class Pushes::LaunchAgent
   end
 
   def mkdir_pushes
-    return if File.directory?(SETTINGS_DIR)
-    FileUtils.mkdir(SETTINGS_DIR)
+    return if File.directory?(Config::PUSHES_FOLDER)
+    FileUtils.mkdir(Config::PUSHES_FOLDER)
   end
 end
