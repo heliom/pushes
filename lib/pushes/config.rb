@@ -1,4 +1,5 @@
 require 'json'
+require 'fileutils'
 require 'highline/import'
 
 class Pushes::Config
