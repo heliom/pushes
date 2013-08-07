@@ -18,6 +18,11 @@ module Pushes
       return 1
     end
 
+    if %w(--version -v).include?(command)
+      display_version
+      return 1
+    end
+
     begin
       send("command_#{command}", args)
     rescue ArgumentError
@@ -122,6 +127,10 @@ module Pushes
 
   def self.display_help
     say(help_message + "\n")
+  end
+
+  def self.display_version
+    say("Pushes #{Pushes::VERSION}" + "\n")
   end
 
   def self.help_message
