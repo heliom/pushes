@@ -20,14 +20,14 @@ describe Pushes do
   before :each do
     @login = 'foozledoo'
     @token = '12345'
-    @event_ids = %w(1234 2345 3456 4567 5678)
+    @events = [PushEvent.new('1234'), PushEvent.new('2345'), PushEvent.new('3456'), PushEvent.new('4567'), PushEvent.new('5678')]
   end
 
   context 'on first run' do
     it 'prompts for GitHub credentials' do
       HighLine.any_instance.should_receive(:ask).with('What is your GitHub username? ').and_return(@login)
       Pushes::Config.any_instance.should_receive(:get_github_token).with(@login).and_return(@token)
-      Pushes.should_receive(:push_events).and_return(@event_ids)
+      Pushes.should_receive(:push_events).and_return(@events)
       Pushes.should_receive(:notify_initiated)
       Pushes.run %w()
 
