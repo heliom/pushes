@@ -52,6 +52,7 @@ module Pushes
     start_interval = interval > 0 ? interval : 10
 
     launch_agent.start(start_interval)
+    command_fetch
   end
 
   def self.command_stop
