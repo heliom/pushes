@@ -58,6 +58,10 @@ module Pushes
     launch_agent.stop
   end
 
+  def self.command_reset
+    config.clear_storage
+  end
+
   # Utilities
   def self.first_run?
     !config.initiated?

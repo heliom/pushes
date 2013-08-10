@@ -56,6 +56,10 @@ class Pushes::Config
     File.read(STORAGE_FILE).split("\n")
   end
 
+  def clear_storage
+    store([])
+  end
+
   private
 
   def get_github_token(github_login)
