@@ -18,7 +18,7 @@ $ pushes fetch
 
 ### Start
 Start a LaunchAgent background process.<br>
-Will `fetch` every `INTERVAL` seconds (default: 10) and will start at boot.
+Will `fetch` every `INTERVAL` seconds (default: 10) and will restart at boot.
 ```sh
 $ pushes start
 $ pushes start 30
