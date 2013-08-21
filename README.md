@@ -38,4 +38,4 @@ $ pushes reset
 ```
 
 ## License
-Copyright © 2012 Heliom. See [LICENSE](/LICENSE.md) for details.
+Copyright © 2013 Heliom. See [LICENSE](/LICENSE.md) for details.
