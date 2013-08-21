@@ -31,5 +31,11 @@ Stop the background process and delete the LaunchAgent file.
 $ pushes stop
 ```
 
+### Reset
+Clear commits storage. We noticed Pushes doesn’t play too well with a force push that removes commits even though such action should be prohibited. In any case, you may want to reset your local storage.
+```sh
+$ pushes reset
+```
+
 ## License
 Copyright © 2012 Heliom. See [LICENSE](/LICENSE.md) for details.
