@@ -1,6 +1,7 @@
 <p align="center">
   <strong>GitHub post-commit notifs<br>in your OS X Notification Center</strong><br>
-  <img src="https://f.cloud.github.com/assets/436043/928820/ea544eee-ffc2-11e2-8604-cf49744c8118.png" alt="Pushes">
+  <img src="https://f.cloud.github.com/assets/436043/928820/ea544eee-ffc2-11e2-8604-cf49744c8118.png" alt="Pushes"><br>
+  <a href="http://badge.fury.io/rb/pushes"><img src="https://badge.fury.io/rb/pushes@2x.png" alt="Gem Version" height="18"></a>
 </p>
 
 ## Installation
