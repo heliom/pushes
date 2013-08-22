@@ -10,20 +10,20 @@ gem install pushes
 ```
 
 ## Commands
-### Fetch (Default)
-Single call to GitHub API.
-```sh
-$ pushes
-$ pushes fetch
-```
-
-### Start
-Start a LaunchAgent background process.<br>
+### Start (Default)
+Start a LaunchAgent process.<br>
 Will `fetch` every `INTERVAL` seconds (default: 10) and will restart at boot.
 ```sh
+$ pushes
 $ pushes start
 $ pushes start 30
 $ pushes start INTERVAL
+```
+
+### Fetch
+Single call to GitHub API.
+```sh
+$ pushes fetch
 ```
 
 ### Stop

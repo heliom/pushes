@@ -29,7 +29,7 @@ describe Pushes do
       Pushes::Config.any_instance.should_receive(:get_github_token).with(@login).and_return(@token)
       Pushes.should_receive(:push_events).and_return(@events)
       Pushes.should_receive(:notify_initiated)
-      Pushes.run %w()
+      Pushes.run %w(fetch)
 
       expect(File.read(Pushes::Config::STORAGE_FILE)).to eq("1234\n2345\n3456\n4567\n5678\n")
       expect(File.read(Pushes::Config::CONFIG_FILE)).to eq("LOGIN=foozledoo\nTOKEN=12345\n")

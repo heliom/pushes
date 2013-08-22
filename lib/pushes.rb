@@ -7,7 +7,7 @@ require 'pushes/notifier'
 require 'pushes/launch_agent'
 
 module Pushes
-  DEFAULT_COMMAND = 'fetch'
+  DEFAULT_COMMAND = 'start'
 
   def self.run(argv)
     command = argv.first || DEFAULT_COMMAND
