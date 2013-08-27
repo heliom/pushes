@@ -17,6 +17,7 @@ class Pushes::LaunchAgent
   end
 
   def stop
+    return unless File.exist?(PLIST_PATH)
     `launchctl unload #{PLIST_PATH}`
     FileUtils.rm(PLIST_PATH)
   end

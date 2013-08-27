@@ -61,6 +61,8 @@ module Pushes
 
   def self.command_reset
     config.clear_storage
+    command_stop
+    command_start([10])
   end
 
   # Utilities
