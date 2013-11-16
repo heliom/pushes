@@ -18,7 +18,7 @@ spec = Gem::Specification.new do |s|
   s.require_paths << 'lib'
 
   s.add_dependency('octokit', '~> 1.24.0')
-  s.add_dependency('terminal-notifier', '~> 1.4.2')
+  s.add_dependency('terminal-notifier', '~> 1.5.1')
   s.add_dependency('highline', '~> 1.6.16')
 
   s.add_development_dependency('rake')
